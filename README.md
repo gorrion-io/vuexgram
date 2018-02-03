@@ -1,4 +1,4 @@
-# vuexstagram
+# vuexgram
 
 > A Vue.js project
 
