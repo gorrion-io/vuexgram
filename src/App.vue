@@ -6,13 +6,15 @@
 </template>
 
 <script>
+import  { Component } from 'vue-property-decorator'
 import PhotosList from './components/PhotosList'
 import MainPhoto from './components/MainPhoto'
 
-export default {
+@Component({
   name: 'App',
-  components: { PhotosList, MainPhoto }
-}
+  components: { PhotosList, MainPhoto}
+})
+export default class App {}
 </script>
 
 <style>

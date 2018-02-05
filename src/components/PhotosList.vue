@@ -6,20 +6,23 @@
 
 <script>
 
+import { Component } from 'vue-property-decorator';
 import { FETCH_PHOTOS, SELECT_PHOTO } from '../store'
 
-export default {
-    computed: {
-        photos() { return this.$store.state.photos }
-    },
-    methods: {
-        makeUrl(photoId) {
-            return `https://picsum.photos/50?image=${photoId}`
-        },
-        selectPhoto(photo) {
-            this.$store.commit(SELECT_PHOTO, photo)
-        }
-    },
+@Component
+export default class PhotosList {
+    get photos() {
+        return this.$store.state.photos
+    }
+
+    makeUrl(photoId) {
+        return `https://picsum.photos/50?image=${photoId}`
+    }
+    
+    selectPhoto(photo) {
+        this.$store.commit(SELECT_PHOTO, photo)
+    }
+
     async created() {
         await this.$store.dispatch(FETCH_PHOTOS)
         this.$store.commit(SELECT_PHOTO, this.$store.state.photos[0])

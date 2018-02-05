@@ -6,27 +6,27 @@
 </template>
 
 <script>
-    export default {
-        data() {
-            return {
-                loading: false
-            }
-        },
-        computed: {
-            photo() { return this.$store.state.selectedPhoto }
-        },
-        watch: {
-            photo() {
-                this.loading = true
-            }
-        },
-        methods: {
-            makeUrl(photoId) {
+    import { Component, Watch } from 'vue-property-decorator'
+
+    @Component()
+    export default class MainPhoto {
+        loading = false
+
+        get photo() {
+            return this.$store.state.selectedPhoto
+        }
+
+        makeUrl(photoId) {
                 return `https://picsum.photos/350/200?image=${photoId}`
-            },
-            load() {
-                this.loading = false
             }
+        
+        load() {
+            this.loading = false
+        }
+
+        @Watch('photo')
+        ponPhotoChanged() {
+            this.loading = true
         }
     }
 </script>
