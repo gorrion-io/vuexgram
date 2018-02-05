@@ -7,8 +7,8 @@
 
 <script>
 import  { Component } from 'vue-property-decorator'
-import PhotosList from './components/PhotosList'
-import MainPhoto from './components/MainPhoto'
+import PhotosList from './containers/PhotosList'
+import MainPhoto from './containers/MainPhoto'
 
 @Component({
   name: 'App',

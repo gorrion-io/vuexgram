@@ -6,19 +6,17 @@
 </template>
 
 <script>
-    import { Component, Watch } from 'vue-property-decorator'
+    import { Component, Watch, Prop } from 'vue-property-decorator'
 
     @Component()
     export default class MainPhoto {
         loading = false
 
-        get photo() {
-            return this.$store.state.selectedPhoto
-        }
+        @Prop() photo
 
         makeUrl(photoId) {
-                return `https://picsum.photos/350/200?image=${photoId}`
-            }
+            return `https://picsum.photos/350/200?image=${photoId}`
+        }
         
         load() {
             this.loading = false
